@@ -1,0 +1,22 @@
+{% load wagtailcore_tags %}
+
+<!--This is the includes template that-->
+<!--gets appended to its parent div via ajax"-->
+{% for post in posts %}
+    <div class="post-preview ">
+        <a href="{% pageurl post %}">
+            <h2 class="post-title">
+                {{ post.specific.title }}
+            </h2>
+            <h3 class="post-subtitle">
+                {{ post.specific.subtitle }}
+                {{ post.specific.names }}
+            </h3>
+        </a>
+        <span class="topic">Category: <a href="{% url 'category' category=post.specific.category %}"><b>{{ post.specific.category }}</b></a></span>
+        <p class="post-meta">
+            Posted by <a href="#">Bryan Hinchliffe</a> - {{ post.specific.date }}
+        </p>
+    </div>
+    <hr>
+{% endfor %}

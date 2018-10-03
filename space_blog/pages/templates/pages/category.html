@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% load static wagtailcore_tags %}
+{% block nav_class %}mainNavHome{% endblock %}
+
+{% block content %}
+<!-- Category page header -->
+    <header class="category-header masthead"
+            {% if category == 'Technology' %}
+            style="background-image: url({% static 'img/technology.jpg' %})"
+            {% elif category == 'Missions' %}
+            style="background-image: url({% static 'img/missions.jpg' %})"
+            {% elif category == 'Politics' %}
+            style="background-image: url({% static 'img/politics.jpg' %})"
+            {% else %}
+            style="background-image: url({% static 'img/discoveries.jpg' %})"
+            {% endif %}>
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="page-heading">
+              <h1>{{ category }}</h1>
+              <span class="subheading">If you're overly curious and fascinated about space, this blog will suit you perfectly!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+{% include 'blog/includes/posts_list.html' %}
+
+{% endblock %}

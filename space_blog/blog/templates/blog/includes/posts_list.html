@@ -1,0 +1,43 @@
+{% load static wagtailcore_tags %}
+
+<!-- Posts list -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <!--Lazy load ajax posts are appended to this div-->
+                <div id="posts">
+                    {% for post in posts %}
+                        <div class="post-preview ">
+                            <a href="{% pageurl post %}">
+                                <h2 class="post-title">
+                                    {{ post.specific.title }}
+                                </h2>
+                                <h3 class="post-subtitle">
+                                    {{ post.specific.subtitle }}
+                                    {{ post.specific.names }}
+                                </h3>
+                            </a>
+                            <p class="topic my-2">Category: <a href="{% url 'category' category=post.specific.category %}"><b>{{ post.specific.category }}</b></a></p>
+                            <p class="post-meta">
+                                Posted by <a href="#">Bryan Hinchliffe</a> - {{ post.specific.date }}
+                            </p>
+                        </div>
+                        <hr>
+                    {% endfor %}
+                </div>
+
+                {% if posts_count > 5 %}
+                    <div class="text-center btn-container">
+                        <a id="lazyLoadLink" class="btn btn-primary" href="javascript:void(0);"
+                           data-page="2" {% if search_query %} data-query="{{ search_query }}"{% endif %}
+                            {% if category %} data-category="{{ category }}"{% endif %}>
+                            More Posts &rarr;
+                        </a>
+                        <img src="{% static 'img/131.gif' %}" id="loadingImg" style="display:none">
+                        <a id="scrollToTopLink" class="btn btn-primary" style="display: none" href="#">Back To Top &uarr;</a>
+                    </div>
+                {% endif %}
+
+            </div>
+        </div>
+    </div>

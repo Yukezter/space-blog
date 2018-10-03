@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+{% load static wagtailcore_tags %}
+
+{% block body_class %}template-blogindexpage{% endblock %}
+
+{% block content %}
+
+    <header class="blog-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6 col-md-10 mx-auto">
+                    <div class="blog-text">
+                        <h1 class="blog-heading">{{ page.title }}</h1>
+                        <span class="blog-subheading"><blockquote class="blockquote">All truths are easy to understand once they are discovered; the point is to discover them. - Galileo</blockquote></span>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-10 mx-auto">
+                    <div class="text-center">
+                        <img class="img-fluid" src="{% static 'img/bumper2_nasa_960.jpg' %}" alt="">
+                        <!--<div class="overlay">-->
+                            <!--<span class="info caption"><b>{{ apod_title }}</b>: {{ apod_explanation }}</span>-->
+                        <!--</div>-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-5">
+                <hr style="margin-top: 26px">
+            </div>
+            <div class="col-2">
+                <div class="text-center">
+                      <span class="fa-stack fa-lg">
+                        <!--<i class="fas fa-circle fa-stack-2x"></i>-->
+                        <i class="fas fa-space-shuttle fa-stack-1x "></i>
+                      </span>
+                </div>
+            </div>
+            <div class="col-5">
+                <hr style="margin-top: 26px">
+            </div>
+        </div>
+    </div>
+
+    {% include 'blog/includes/posts_list.html' %}
+
+
+
+{% endblock %}

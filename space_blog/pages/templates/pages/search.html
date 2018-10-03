@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags %}
+
+{% block body_class %}template-searchresults{% endblock %}
+
+{% block title %}Search{% endblock %}
+
+{% block content %}
+    <div class="search-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <!--<form action="{% url 'search' %}" method="get">-->
+                        <!--<input id="query" type="text" name="query"{% if search_query %} value="{{ search_query }}"{% endif %}>-->
+                        <!--<input type="submit" value="Search" class="button">-->
+                    <!--</form>-->
+                    <h1 class="page-heading text-center">Search</h1>
+                    <form action="{% url 'search' %}" method="get">
+                        <div class="input-group py-3">
+                            <input class="form-control mr-2 py-0" type="search" name="query"{% if search_query %} value="{{ search_query }}"{% endif %} placeholder="Search" aria-label="Search">
+                            <button class="btn btn-primary my-0 py-0 input-group-btn" type="submit" value="Search">
+                                <span class="fa-stack fa-md">
+                                    <i class="fas fa-search fa-stack-1x"></i>
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-8 col-md-10 mx-auto">
+                <p class="my-0" style="word-wrap: break-word">
+                    {% if search_query %}
+                        {% if posts_count %}
+                            Found <b>{{ posts_count }}</b> result{% if posts_count > 1 %}s{% endif %} for: {{ search_query }}
+                        {% else %}
+                            No results were found.
+                        {% endif %}
+                    {% endif %}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    {% include 'blog/includes/posts_list.html' %}
+
+    <!--{% if search_results %}-->
+        <!--<ul>-->
+            <!--{% for result in search_results %}-->
+                <!--<li>-->
+                    <!--<h4><a href="{% pageurl result %}">{{ result }}</a></h4>-->
+                    <!--{% if result.search_description %}-->
+                        <!--{{ result.search_description }}-->
+                    <!--{% endif %}-->
+                <!--</li>-->
+            <!--{% endfor %}-->
+        <!--</ul>-->
+
+        <!--{% if search_results.has_previous %}-->
+            <!--<a href="{% url 'search' %}?query={{ search_query|urlencode }}&amp;page={{ search_results.previous_page_number }}">Previous</a>-->
+        <!--{% endif %}-->
+
+        <!--{% if search_results.has_next %}-->
+            <!--<a href="{% url 'search' %}?query={{ search_query|urlencode }}&amp;page={{ search_results.next_page_number }}">Next</a>-->
+        <!--{% endif %}-->
+    <!--{% elif search_query %}-->
+        <!--No results found-->
+    <!--{% endif %}-->
+{% endblock %}

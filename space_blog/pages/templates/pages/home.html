@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+{% load static wagtailcore_tags %}
+
+{% block body_class %}template-homepage{% endblock %}
+{% block nav_class %}mainNavHome{% endblock %}
+
+{% block content %}
+
+    <!-- Home header -->
+    <header class="masthead" style="background-image: url({% static 'img/star-bg.jpg' %})">
+      <div class="overlay"></div>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 col-md-10 mx-auto">
+            <div class="page-heading">
+              <h1>Welcome.</h1>
+              <span class="subheading">If you're overly curious and fascinated about space, this blog will suit you perfectly!</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <section class="categories-content my-lg-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe nostrum ullam eveniet pariatur voluptates odit, fuga atque ea nobis sit soluta odio, adipisci quas excepturi maxime quae totam ducimus consectetur?</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius praesentium recusandae illo eaque architecto error, repellendus iusto reprehenderit, doloribus, minus sunt. Numquam at quae voluptatum in officia voluptas voluptatibus, minus!</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut consequuntur magnam, excepturi aliquid ex itaque esse est vero natus quae optio aperiam soluta voluptatibus corporis atque iste neque sit tempora!</p>
+                </div>
+            </div>
+            <div class="row py-4">
+                <div class="col-lg-2 mx-auto d-none d-lg-block"></div>
+                <div class="col-lg-4 col-md-6 col-sm-8 col-xs-10 mx-auto d-flex justify-content-center">
+                    <div class="card" style="width: 22rem;">
+                      <img class="card-img-top" src="{% static 'img/technology2.svg' %}" alt="Card image cap">
+                      <div class="card-body text-center">
+                        <h3 class="card-title">Technology</h3>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="{% url 'category' category='technology' %}" class="btn btn-primary">See Posts</a>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-8 col-xs-10 mx-auto d-flex justify-content-center">
+                    <div class="card " style="width: 22rem;">
+                      <img class="card-img-top" src="{% static 'img/missions2.svg' %}" alt="Card image cap">
+                      <div class="card-body text-center">
+                        <h3 class="card-title">Missions</h3>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="{% url 'category' category='missions' %}" class="btn btn-primary">See Posts</a>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 mx-auto d-none d-lg-block"></div>
+            </div>
+            <div class="row mb-5">
+                <div class="col-lg-2 mx-auto"></div>
+                <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 mx-auto d-flex justify-content-center">
+                    <div class="card " style="width: 22rem;">
+                      <img class="card-img-top" src="{% static 'img/politics2.svg' %}" alt="Card image cap">
+                      <div class="card-body text-center">
+                        <h3 class="card-title">Politics</h3>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="{% url 'category' category='politics' %}" class="btn btn-primary">See Posts</a>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-10 col-xs-10 mx-auto d-flex justify-content-center">
+                    <div class="card " style="width: 22rem;">
+                      <img class="card-img-top" src="{% static 'img/discoveries2.svg' %}" alt="Card image cap">
+                      <div class="card-body text-center">
+                        <h3 class="card-title">Discoveries</h3>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                        <a href="{% url 'category' category='discoveries' %}" class="btn btn-primary">See Posts</a>
+                      </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 mx-auto"></div>
+            </div>
+        </div>
+    </section>
+
+
+{% endblock %}
+
