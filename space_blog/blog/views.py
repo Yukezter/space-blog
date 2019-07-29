@@ -8,7 +8,7 @@ from wagtail.search.models import Query
 from .models import BlogPage
 
 
-# This is called via ajax when the 'more posts' button is clicked
+# This function is called via ajax when the 'more posts' button is clicked
 # The data passed by ajax is used to filter what queryset we need
 def lazy_load_posts(request):
 

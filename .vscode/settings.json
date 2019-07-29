@@ -1,0 +1,4 @@
+{
+    "python.pythonPath": "space_blog_env\\Scripts\\python.exe",
+    "python.linting.pylintEnabled": true
+}
